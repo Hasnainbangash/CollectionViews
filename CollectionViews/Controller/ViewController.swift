@@ -25,23 +25,29 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageReuseableCell")
-        
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageReuseableCell", for: indexPath) as? ImageCell
-        if let image = images[indexPath.row] {
+        if let image = images[indexPath.section] {
             cell?.imageView.image = image
         }
-        
         return cell!
     }
+}
+
+extension ViewController: UICollectionViewDelegate {
+    
 }
