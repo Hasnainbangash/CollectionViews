@@ -48,6 +48,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
+// If we want to resize the cells we can use the DelegateFlowLayout
+extension ViewController: UICollectionViewDelegateFlowLayout {
     
 }
